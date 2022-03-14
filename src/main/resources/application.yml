@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecare
+    username: spring
+    password: Po=V+|EBR^
+#    initialization-mode: always # https://stackoverflow.com/questions/38040572/spring-boot-loading-initial-data
+#    continue-on-error: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
