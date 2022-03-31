@@ -16,5 +16,5 @@ public class Role {
     @NotNull @NotBlank
     private String name;
     @NotNull
-    private Integer level; // 1 - Admin, 2 - Manager, 3 - Customer
+    private int level; // 1 - Admin, 2 - Manager, 3 - Customer
 }

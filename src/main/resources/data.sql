@@ -10,3 +10,8 @@ INSERT INTO user (id, login, password, role_id) VALUES
     (2, 'manager', '$2a$12$b7wBTUgBfNqP26Tg7n0O3.h97fzT2tgOqf60PTNAPaX2EUqK9q0re', 2),
     (3, 'customer', '$2a$12$96o6r945fLBrgCSL7aT8ded77ByZv1uyori.bgyArNS4Z5by2jP3K', 3),
     (4, 'user', '$2a$12$WJ.0yPTnIXdVwhTIjzFZcumv1t0LfqyLYaJVBsqWDE5M/pxgtUiZK', 3);
+
+delete from tariff;
+INSERT INTO tariff (id, name, price) VALUES
+    (1, 'test_tariff_1', 100),
+    (2, 'test_tariff_2', 200);

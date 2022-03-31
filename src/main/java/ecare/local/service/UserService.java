@@ -1,6 +1,5 @@
 package ecare.local.service;
 
-import ecare.local.dao.UserDAO;
 import ecare.local.dto.UserDTO;
 import ecare.local.model.User;
 

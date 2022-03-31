@@ -1,18 +1,22 @@
 package ecare.local.controller;
 
-import ecare.local.dto.UserDTO;
 import ecare.local.model.User;
 import ecare.local.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 
-@RestController
+@Controller
 public class eCareController {
     @Autowired
     private UserService userService;
+
+    @RequestMapping("/")
+    public String index() { return "index"; }
 
     @GetMapping("/error")
     public ResponseEntity<String> no_such_page() {
@@ -36,11 +40,6 @@ public class eCareController {
 
     @GetMapping("/user")
     public ResponseEntity<String> getUser() { return ResponseEntity.ok("Hello User"); }
-
-//    @PostMapping("/user/add")
-//    public String addUser(@RequestBody final UserDTO userDTO) {
-//        User user = userService.addUser(userDTO);
-//    }
 
     @GetMapping("/user/registration")
     public String showRegistrationForm(WebRequest request, Model model) {

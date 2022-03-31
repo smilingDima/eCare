@@ -17,7 +17,7 @@ public class Tariff {
     @NotNull @NotBlank
     private String name;
     @NotNull
-    private Long price;
+    private long price;
 
     // https://stackoverflow.com/questions/42394095/many-to-many-relationship-between-two-entities-in-spring-boot
     @ManyToMany(mappedBy = "tariffs")
