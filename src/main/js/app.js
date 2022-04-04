@@ -1,45 +1,39 @@
+import React from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 
-import React from 'react';
 import { render } from 'react-dom';
 import { OpenAPIProvider } from 'react-openapi-client';
 
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
+import 'react-tabs/style/react-tabs.css';
+
+import Contracts from './components/Contracts';
+import Tariffs from './components/Tariffs';
+
+const TabsList = () => (
+  <Tabs>
+    <TabList>
+      <Tab>Contracts</Tab>
+      <Tab>Tariffs</Tab>
+    </TabList>
+
+    <TabPanel>
+      <h2>Contracts</h2>
+      <Contracts />
+    </TabPanel>
+    <TabPanel>
+      <h2>Tariffs</h2>
+      <Tariffs />
+    </TabPanel>
+  </Tabs>
+);
 const App = () => (
   <OpenAPIProvider definition="/v3/api-docs">
-    <Tariffs/>
+    <TabsList/>
   </OpenAPIProvider>
 );
 
-import { useOperation } from 'react-openapi-client';
-
-const Tariffs = (props) => {
-//  const { loading, data, error } = useOperation('getItemResource-tariff-get', props.id);
-  const { loading, data, error } = useOperation('getCollectionResource-tariff-get_1');
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  return (
-    data._embedded.tariffs.map((tariff) =>
-    <div className="App">
-      <h3>{tariff.name}</h3>
-      <ul>
-        <li>
-          <strong>id:</strong> {tariff.id}
-        </li>
-        <li>
-          <strong>price:</strong> {tariff.price}
-        </li>
-      </ul>
-    </div>
-  ));
-};
-
 // Create a root.
 const root = ReactDOMClient.createRoot(document.getElementById('react'));
-root.render(<App />);
+root.render(<App/>);
