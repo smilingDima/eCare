@@ -30,3 +30,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# custom at src/main/ui
+# npm install --force
+/package-lock.json
+# npx tailwindcss -i ./styles/globals.css -o ./styles/tailwind.css --watch
+/styles/tailwind.css
