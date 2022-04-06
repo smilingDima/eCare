@@ -1,20 +1,21 @@
+// import DataGrid from 'react-data-grid';
+import dynamic from "next/dynamic";
+
+const DynamicReactDataGrid = dynamic(() => import('react-data-grid'), {ssr: false}); //load it on client side only
+
 const Tariffs = (props) => {
-    const data = props.tariffs
+    const columns = [{
+        name: 'Name', key: 'name',
+    }, {
+        name: 'Price', key: 'price',
+    }, {
+        name: 'Id', key: 'id',
+    },];
+    const data = props.tariffs;
     const tariffs = data._embedded.tariffs;
-    return !tariffs.length ? null : (
-        tariffs.map((tariff) =>
-            <div className="App">
-                <h3>{tariff.name}</h3>
-                <ul>
-                    <li>
-                        <strong>id:</strong> {tariff.id}
-                    </li>
-                    <li>
-                        <strong>price:</strong> {tariff.price}
-                    </li>
-                </ul>
-            </div>
-        ));
+
+    return !tariffs.length ? null :
+        <DynamicReactDataGrid columns={columns} rows={tariffs}/>;
 };
 
 export default Tariffs;
