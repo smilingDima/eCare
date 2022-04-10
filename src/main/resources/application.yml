@@ -2,6 +2,13 @@ server:
   port: 8080
 
 #debug: true
+logging:
+  level:
+    org:
+      springframework:
+        web: debug
+      hibernate: error
+    root: warn
 
 spring:
   data:
@@ -18,7 +25,7 @@ spring:
 #    initialization-mode: always # https://stackoverflow.com/questions/38040572/spring-boot-loading-initial-data
 #    continue-on-error: true
   jpa:
-    show-sql: true
+#    show-sql: true
     hibernate:
       ddl-auto: update
     properties:

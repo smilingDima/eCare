@@ -1,9 +1,9 @@
-import ManagersRoutes from "./managersRoutes";
+import ManagerRoutes from "../components/ManagerRoutes";
 
 export default function ManagersIndex() {
     return (
         <>
-            <ManagersRoutes />
+            <ManagerRoutes />
         </>
     )
 }
