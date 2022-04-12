@@ -9,11 +9,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Entity
+@Entity(name = "User")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +23,7 @@ public class User {
     @ManyToOne
     @NotNull
     @JoinColumn(name = "role_id")
-    private Role role;
+    private RoleEntity roleEntity;
     private String fistName;
     private String lastName;
     private Date birthday;

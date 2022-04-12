@@ -1,9 +1,9 @@
 package ecare.local.service;
 
-import ecare.local.dto.UserDTO;
-import ecare.local.model.User;
+import ecare.local.dto.UserDto;
+import ecare.local.model.UserEntity;
 
 public interface UserService {
-    User findByLogin(String login);
-    User addUser(UserDTO userDto);
+    UserEntity findByLogin(String login);
+    UserEntity addUser(UserDto userDto);
 }

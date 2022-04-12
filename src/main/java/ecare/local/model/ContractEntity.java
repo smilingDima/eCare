@@ -5,8 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
+@Table(name="contract")
 @Data
-public class Contract {
+public class ContractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,5 +15,5 @@ public class Contract {
     private String phoneNumber;
     @ManyToOne
     @JoinColumn(name = "blocked_by_id")
-    private Role blockedBy;
+    private RoleEntity blockedBy;
 }

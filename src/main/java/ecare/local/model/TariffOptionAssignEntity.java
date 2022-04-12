@@ -7,19 +7,21 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
+@Table(name="tariff_option_assign")
 @Data
-public class TariffAssign {
+public class TariffOptionAssignEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "contract_id")
     @NotNull
-    private Contract contract;
+    private ContractEntity contract;
     @ManyToOne
-    @JoinColumn(name = "tariff_id")
+    @JoinColumn(name = "tariff_option_id")
     @NotNull
-    private Tariff tariff;
+    private TariffOptionEntity tariffOption;
     @NotNull
-    private Date start_date;
+    private Date startDate;
+    private Date endDate;
 }

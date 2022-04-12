@@ -7,22 +7,20 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
+@Table(name="tariff_assign")
 @Data
-public class CartElement {
+public class TariffAssignEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "contract_id")
     @NotNull
-    private Contract contract;
+    private ContractEntity contractEntity;
     @ManyToOne
     @JoinColumn(name = "tariff_id")
-    private Tariff tariff;
-    private Date tariffStartDate;
-    @ManyToOne
-    @JoinColumn(name = "tariff_option_id")
-    private TariffOption tariffOption;
-    private Date tariffOptionStartDate;
-    private Date tariffOptionEndDate;
+    @NotNull
+    private TariffEntity tariffEntity;
+    @NotNull
+    private Date start_date;
 }

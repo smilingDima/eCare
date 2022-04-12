@@ -1,6 +1,6 @@
 package ecare.local.controller;
 
-import ecare.local.model.User;
+import ecare.local.model.UserEntity;
 import ecare.local.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 
 @Controller
-public class eCareController {
+public class UserController {
     @Autowired
     private UserService userService;
 
@@ -43,8 +43,8 @@ public class eCareController {
 
     @GetMapping("/user/registration")
     public String showRegistrationForm(WebRequest request, Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
+        UserEntity userEntity = new UserEntity();
+        model.addAttribute("user", userEntity);
         return "registration";
     }
 }

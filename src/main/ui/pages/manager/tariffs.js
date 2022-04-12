@@ -16,13 +16,8 @@ export default function ManagersTariff() {
     </Head>
     <ManagerRoutes />
 
-    <h1 className="box-content h-32 w-32">Tariffs</h1>
-    <div className="grid grid-cols-1 gap-6">
-        <input type="date" className="mt-1 block w-full"/>
-    </div>
-    <br />
+    <h1 className="text-2xl font-bold">Tariffs</h1>
     <ManagerTariffs tariffs={tariffs}/>
-    <br />
 </>
     )
 }

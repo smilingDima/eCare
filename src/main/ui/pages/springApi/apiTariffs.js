@@ -21,7 +21,7 @@ export function apiGetTariff(id) {
 
 export async function apiPatchTariff(id, values) {
   // const csrfToken = document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
-  await fetch(`/api/tariffs/${id}`, {
+  const response = await fetch(`/api/tariffs/${id}`, {
     method: 'PATCH',
     body: JSON.stringify(values),
     headers: {
@@ -31,6 +31,7 @@ export async function apiPatchTariff(id, values) {
     },
   })
   await mutate(`/api/tariffs/${id}`)
+  return response.status
 }
 
 export default {apiGetTariffs, apiGetTariff, apiPatchTariff}

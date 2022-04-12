@@ -8,8 +8,9 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
+@Table(name="tariff")
 @Data
-public class TariffOption {
+public class TariffEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,19 +18,9 @@ public class TariffOption {
     @NotNull @NotBlank
     private String name;
     @NotNull
-    private Long price;
-    @NotNull
-    private Long enablingPrice;
+    private long price;
 
-    @ManyToMany
-    @JoinTable
-    private Set<Tariff> tariffs;
-
-    @ManyToMany
-    @JoinTable
-    private Set<TariffOption> incompatibleTariffOptions;
-
-    @ManyToMany
-    @JoinTable
-    private Set<TariffOption> connectedTariffOptions;
+    // https://stackoverflow.com/questions/42394095/many-to-many-relationship-between-two-entities-in-spring-boot
+    @ManyToMany(mappedBy = "tariffs")
+    private Set<TariffOptionEntity> tariffOptions;
 }
