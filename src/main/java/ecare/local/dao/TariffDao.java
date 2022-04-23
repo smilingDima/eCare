@@ -1,8 +1,8 @@
 package ecare.local.dao;
 
 import ecare.local.model.TariffEntity;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface TariffDao extends CrudRepository<TariffEntity, Long> {
+public interface TariffDao extends PagingAndSortingRepository<TariffEntity, Long> {
 
 }

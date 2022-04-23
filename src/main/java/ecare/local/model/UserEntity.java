@@ -9,7 +9,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Entity(name = "User")
+@Entity
+@Table(name = "user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -1,12 +1,13 @@
 package ecare.local.service;
 
-import ecare.local.model.TariffEntity;
+import ecare.local.dto.TariffDto;
+import org.springframework.data.domain.Pageable;
 
-import java.util.Optional;
 
 public interface TariffService {
-    public Iterable<TariffEntity> findAll();
-    public Optional<TariffEntity> findById(long id);
-    public void save(TariffEntity tariffEntity);
+    public Iterable<TariffDto> findAll();
+    public Iterable<TariffDto> findAll(Pageable pageable);
+    public TariffDto findById(long id);
+    public void save(TariffDto tariffDto);
     public void deleteById(long id);
 }
