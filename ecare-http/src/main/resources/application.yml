@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: ecare-http
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+#debug: true
+logging:
+  level:
+    org:
+      springframework:
+        web: debug
+      hibernate: error
+    root: warn
